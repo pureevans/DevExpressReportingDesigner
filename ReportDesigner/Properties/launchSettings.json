@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ReportDesigner": {
+      "commandName": "Project",
+      "launchBrowser": true
+    }
+  }
+}
