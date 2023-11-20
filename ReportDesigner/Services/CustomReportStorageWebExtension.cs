@@ -70,8 +70,7 @@ namespace ReportDesigner.Services
                 serializer.Serialize(ms, reportData.LayoutData);
                 var xtraReport = new XtraReport();
                 xtraReport.LoadLayoutFromXml(ms);
-
-                //DevExpressSupport --> the bandCollection for TestReport is empty (Count = 0), where does the magic happen after GetData returns that the report designer still shows the report with its defined bands?
+                //DevExpressSupport --> the bandCollection/AllPrintableBands for TestReport is empty (Count = 0), where does the magic happen after GetData returns that the report designer still shows the report with its defined bands?
                 var bandCollection = xtraReport.Bands;
                 return reportData.LayoutData;
             }
@@ -81,7 +80,6 @@ namespace ReportDesigner.Services
                 using var ms = new MemoryStream();
                 using XtraReport report = foundReport();
                 report.SaveLayoutToXml(ms);
-                var test = report.DataSource;
                 return ms.ToArray();
             }
             throw new DevExpress.XtraReports.Web.ClientControls.FaultException(string.Format("Could not find report '{0}'.", url));
