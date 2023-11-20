@@ -71,7 +71,7 @@ namespace ReportDesigner.Services
                 var xtraReport = new XtraReport();
                 xtraReport.LoadLayoutFromXml(ms);
 
-                //DevExpressSupport --> the bandCollection for TestReport is empty (Count = 0), where does the magic happen that the report designer still shows the report with its defined bands?
+                //DevExpressSupport --> the bandCollection for TestReport is empty (Count = 0), where does the magic happen after GetData returns that the report designer still shows the report with its defined bands?
                 var bandCollection = xtraReport.Bands;
                 return reportData.LayoutData;
             }
